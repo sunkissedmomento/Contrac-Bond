@@ -179,6 +179,7 @@ export default function Page() {
       </header>
 
 
+
       <main className="snap-scroll">
         {sections.map((section, i) => (
           <section

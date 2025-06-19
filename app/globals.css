@@ -98,15 +98,17 @@ header.hidden {
 
 /* Site title */
 .site-title {
+  font-size: clamp(1.25rem, 5vw, 2rem); /* Responsive font scaling */
   font-weight: bold;
-  font-size: 28px;
-  white-space: nowrap;
+  white-space: nowrap; /* Prevents it from breaking into two lines */
 }
 
 /* Navigation */
 nav {
-  display: flex;
-  gap: 1rem;
+  display: flex;            /* Use flex instead of grid */
+  gap: 0.5rem;
+  margin-left: auto;        /* Pushes nav to the right */
+  align-items: center;
 }
 
 /* Section backgrounds */
@@ -222,17 +224,27 @@ nav {
   }
 
   header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1rem;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 75px;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between; /* This auto-aligns left and right */
+  align-items: center;            /* Vertically centers children */
+  background: var(--bumble-beige);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
 
-  nav {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
+nav {
+  display: flex;            /* Use flex instead of grid */
+  gap: 0.5rem;
+  margin-left: auto;        /* Pushes nav to the right */
+  align-items: center;
+}
+
 
   nav button {
     width: 100%;
