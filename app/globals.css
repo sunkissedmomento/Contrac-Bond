@@ -1,82 +1,85 @@
-/* Import Montserrat font for all text */
+/* Import Montserrat font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
-/* Define color variables for consistent theme */
+/* === COLOR VARIABLES === */
 :root {
-  --bumble-yellow: #FFDC00;    /* Bright yellow used in call-to-action buttons and section backgrounds */
-  --bumble-beige: #FFF6E5;     /* Soft beige for section backgrounds and base UI */
-  --black: #1A1A1A;            /* Standard black for dark sections */
+  --bumble-yellow: #FFDC00;
+  --bumble-beige: #FFF6E5;
+  --black: #1A1A1A;
+  --text-black: #000000;
 }
 
-/* Reset and base styles */
+/* === RESET & BASE === */
 * {
-  box-sizing: border-box;     /* Ensures padding and border don't expand element size */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;    /* Enables smooth scrolling between sections */
+  scroll-behavior: smooth;
 }
 
-/* Base HTML and body styling */
 html, body {
-  font-family: 'Montserrat', sans-serif;   /* Global font */
-  background-color: var(--bumble-beige);   /* Light background by default */
-  color: #111;                             /* Dark gray text */
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bumble-beige);
+  color: #111;
   width: 100%;
-  overflow-x: hidden;                      /* Prevents horizontal scroll */
+  overflow-x: hidden;
 }
 
-/* All full-page sections (slides) */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* === LAYOUT SECTIONS === */
 section {
-  min-height: 100vh;               /* Each section fills the viewport */
-  padding: 6rem 5vw 4rem;          /* Top, side, and bottom padding */
+  min-height: 100vh;
+  padding: 6rem 5vw 4rem;
   display: flex;
-  flex-direction: column;          /* Stack content vertically */
-  justify-content: center;         /* Center vertically */
-  gap: 1rem;                       /* Space between children */
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* Large title for hero and key slides */
+/* === TYPOGRAPHY === */
 h1 {
   font-size: 4rem;
   font-weight: 800;
 }
 
-/* Section headings */
 h2 {
   font-size: 2.5rem;
+  font-weight: 700;
 }
 
-/* Paragraphs and list items */
 p, li {
-  font-size: 1.125rem;   /* 18px font for readability */
+  font-size: 1.125rem;
+  line-height: 1.6;
+  word-break: break-word;
 }
 
-/* Default button style */
-button {
+/* === BUTTON STYLES === */
+button,
+.learn-more-btn {
   padding: 0.75rem 1.5rem;
-  border: none;
-  background: #FFF6E5; /* Bright yellow background */
-  color: black;
-  border-radius: 999px;             /* Fully rounded pill shape */
+  font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
   border: 4px solid #FFB703;
   border-radius: 30px;
+  background-color: var(--bumble-beige);
+  color: var(--text-black);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  max-width: 100%;
 }
 
-/* Button hover effect */
-button:hover {
-  background: #ffe8a0;
+button:hover,
+.learn-more-btn:hover {
+  background-color: #ffe8a0;
 }
 
-/* List spacing */
-ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-}
-
-/* Sticky header bar */
+/* === HEADER === */
 header {
   position: fixed;
   top: 0;
@@ -88,113 +91,100 @@ header {
   justify-content: space-between;
   align-items: center;
   background: var(--bumble-beige);
-  z-index: 1000;                        /* Keep on top of other elements */
-  transition: transform 0.3s ease;     /* Smooth slide up/down */
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
-/* Header slide-up animation on scroll down */
 header.hidden {
   transform: translateY(-100%);
 }
 
-/* Navigation inside header */
 nav {
   display: flex;
-  gap: 1rem;  /* Spacing between buttons */
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-/* Section background and text colors */
+/* === COLOR UTILITY CLASSES === */
 .bg-bumbleYellow {
-  background-color: var(--bumble-yellow); /* Yellow section with black text */
+  background-color: var(--bumble-yellow);
   color: black;
 }
 
 .bg-bumbleBeige {
-  background-color: var(--bumble-beige);  /* Beige section with black text */
+  background-color: var(--bumble-beige);
   color: black;
 }
 
 .bg-black {
-  background-color: black;               /* Black section with white text */
+  background-color: var(--black);
   color: white;
 }
 
-/* Two-column layout (used in intro & image sections) */
+/* === GRID LAYOUTS === */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-  gap: 2rem; /* Space between columns */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
 
-/* Rounded image containers*/
+/* === IMAGE STYLING === */
 .rounded-img {
-  border-radius: 20px;  /* Soft corners */
+  border-radius: 30px;
   overflow: hidden;
   width: 100%;
-  height: 250px;
+  aspect-ratio: 4 / 3;
+  position: relative;
 }
 
-/* Optional hero section class (not specifically used) */
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.rounded-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-/* Snap scrolling container */
+/* === SCROLL SNAPPING === */
 .snap-scroll {
-  padding-top: 75px;           /* Offset for sticky header */
-  height: 100vh;               /* Take up full height */
+  padding-top: 75px;
+  height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory; /* Enable snap scrolling on vertical axis */
+  scroll-snap-type: y mandatory;
 }
 
-/* Each section aligns to top of screen when snapped */
 .snap-scroll section {
   scroll-snap-align: start;
 }
 
-/* Responsive tweaks for mobile screens */
+/* === LISTS === */
+ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
   }
+
   h2 {
     font-size: 1.75rem;
   }
+
   section {
-    min-height: 100vh;
     padding: 6rem 5vw 4rem;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    gap: 1rem;
   }
-}
 
-/* Custom "Learn More" button (used in slide 1) */
-.learn-more-btn {
-  width: 150px;
-  height: 55px;
-  background: var(--bumble-beige);
-  border: 4px solid #FFB703;   /* Border matching brand yellow */
-  border-radius: 30px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 1000;
-  font-size: 15px;
-  line-height: 24px;
-  color: #000000;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: baseline;        /* Aligns to left in flex layout */
-}
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
 
-/* Hover style for Learn More button */
-.learn-more-btn:hover {
-  background-color: #ffe8a0;
-}
-/* Reusable border style */
-.bordered-btn {
-  border: 4px solid #FFB703;
-  border-radius: 30px;
+  button,
+  .learn-more-btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
 }

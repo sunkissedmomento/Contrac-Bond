@@ -82,17 +82,23 @@ export default function Page() {
     </p>
   </div>
   <div className="grid-2">
-    {[
-      { src: '/images/marc-nunchucks.jpg', alt: 'Cosplay' },
-      { src: '/images/marc-radar-win.jpeg', alt: 'Received' },
-      { src: '/images/marc-working.png', alt: 'Messenger' },
-      { src: '/images/marc-speaking.JPG', alt: 'Speaking' },
-    ].map(({ src, alt }, i) => (
-      <div key={i} className="rounded-img">
-        <Image src={src} alt={alt} width={300} height={250} className="object-cover w-full h-full" />
-      </div>
-    ))}
-  </div>
+  {[
+    { src: '/images/marc-nunchucks.jpg', alt: 'Cosplay' },
+    { src: '/images/marc-radar-win.jpeg', alt: 'Received' },
+    { src: '/images/marc-working.png', alt: 'Messenger' },
+    { src: '/images/marc-speaking.JPG', alt: 'Speaking' },
+  ].map(({ src, alt }, i) => (
+    <div key={i} className="rounded-img">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="image-fill"
+      />
+    </div>
+  ))}
+</div>
+
 </div>
 
       ),
