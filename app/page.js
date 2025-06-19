@@ -78,7 +78,7 @@ export default function Page() {
       <br /> 💡 Personal inventions
       <br /> 🚀 Startup MVPs
       <br /><br />
-      <span className="italic">And there’s one thing that scares all freelancers and artists...</span>
+      <span className="italic">And there’s one thing that scares all freelancers and artists the most...</span>
     </p>
   </div>
   <div className="grid-2">
