@@ -167,7 +167,7 @@ export default function Page() {
   return (
     <>
       <header className={showHeader ? '' : 'hidden'}>
-        <div style={{ fontSize: '28px', fontWeight: 'bold' }}>Contrac-Bond</div>
+        <div className="site-title">Contrac-Bond</div>
         <nav>
           <button onClick={() => window.open('https://forms.gle/wsBmwRvb3QrraAQu7', '_blank')}>
             Early Access
@@ -177,6 +177,7 @@ export default function Page() {
           </button>
         </nav>
       </header>
+
 
       <main className="snap-scroll">
         {sections.map((section, i) => (
